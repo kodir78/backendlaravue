@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Maatwebsite\Excel\Concerns\ToModel;
 
 class Product extends Model
 {
@@ -29,4 +29,5 @@ class Product extends Model
     {
         return $this->hasMany(ProductGallery::class,'products_id');
     }
+
 }

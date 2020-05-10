@@ -31,6 +31,14 @@
                     <div class="card">
                         <div class="card-header">
                             <a id="add-button" title="Add New" class="btn btn-success" href="{{ route('products.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
+                            <a href="#mymodal"
+                                          data-remote="#"
+                                          data-toggle="modal"
+                                          data-target="#mymodal"
+                                          data-title="Import Product"
+                                          class="btn btn-info">
+                                          Import
+                                        </a>
                             <div class="card-tools" style="padding:8px 0px">
                                 <form action="{{ route('products.index') }}">
                                     <div class="input-group input-group-sm" style="width: 250px;">
@@ -47,7 +55,7 @@
                             <table class="table table-bordered">
                                 <thead class="text-center">                  
                                     <tr>
-                                        <th style="width: 10px">#</th>
+                                        {{--  <th style="width: 10px">#</th>  --}}
                                         <th>Nama Barang</th>
                                         <th>Tipe</th>
                                         <th>Harga Satuan</th>
@@ -58,7 +66,7 @@
                                 <tbody>
                                     <tr>
                                         @forelse ($items as $item)
-                                        <td class="serial">{{ $item->id }}</td>
+                                        {{--  <td class="serial">{{ $item->id }}</td>  --}}
                                         <td>{{ $item->title }}</td>
                                         <td>{{ $item->type }} </td>
                                         <td class="text-right">{{ $item->price }}</td>
@@ -114,4 +122,44 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+@push('after-script')
+{{--  <script>
+  jQuery(document).ready(function($){
+      $('#mymodal').on('show.bs.modal', function(e){
+          var button = $(e.relatedTarget);
+          var modal = $(this);
+          
+          modal.find('.modal-body').load(button.data("remote"));
+          modal.find('.modal-title').html(button.data("title"));
+      });
+  });
+</script>  --}}
+
+<div class="modal fade" id="mymodal">
+  <div class="modal-dialog">
+    <form method="post" action="/products/import_excel" enctype="multipart/form-data">
+        @csrf
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+            </div>
+            <div class="modal-body">
+                <label>Pilih file excel</label>
+                <div class="form-group">
+                    <input type="file" name="file" required="required">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Import</button>
+            </div>
+        </div>
+    </form>
+      <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+@endpush
 @endsection
