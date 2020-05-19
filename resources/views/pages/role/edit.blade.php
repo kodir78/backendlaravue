@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="/assets/backend/adminlte30/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 <!-- Jasny Bootstrap 4 -->
 <link rel="stylesheet" href="/assets/backend/adminlte30/plugins/jasny-bootstrap/4.0.0/css/jasny-bootstrap.min.css">   
+<!-- summernote -->
+<link rel="stylesheet" href="/assets/backend/adminlte30/plugins/summernote/summernote-bs4.css">
 @endpush
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -37,18 +39,20 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Item Barang</h3>
+                            <strong>Ubah Barang</strong> 
+                            <small>{{ $item->title }}</small>
                         </div>
-                        <div class="card-body">
-                            <form action="{{ route('products.store') }}" method="post" class="bg-white shadow-sm p-3">
+                        <div class="card-body card-block">
+                            <form action="{{ route('products.update', $item->id) }}" method="post">
+                                @method('PUT')
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name" class="control-label">Nama Barang</label>
+                                    <label for="title" class="control-label">Nama Barang</label>
                                     <input  type="text"
-                                    name="name" 
-                                    value="{{ old('name') }}"
-                                    class="form-control @error('name') is-invalid @enderror">
-                                    @error('name')
+                                    name="title" 
+                                    value="{{ old('title') ? old('title') : $item->title}}" //Tenari function
+                                    class="form-control @error('title') is-invalid @enderror">
+                                    @error('title')
                                     <div class="text-muted">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -56,16 +60,16 @@
                                     <label for="type" class="control-label">Tipe Barang</label>
                                     <input  type="text" 
                                     name="type" 
-                                    value="{{ old('type') }}"
+                                    value="{{ old('type') ? old('type') : $item->type }}"
                                     class="form-control @error('type') is-invalid @enderror">
                                     @error('type')
                                     <div class="text-muted">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="description" class="control-label">Deskripsi</label>
+                                    <label for="title" class="control-label">Deskripsi</label>
                                     <textarea name="description"
-                                    class=" form-control @error('description') is-invalid @enderror" >{{ old('description') }}</textarea>
+                                    class=" form-control @error('description') is-invalid @enderror" >{{ old('description') ? old('description') : $item->description }}</textarea>
                                     @error('description')
                                     <div class="text-muted">{{ $message }}</div>
                                     @enderror
@@ -74,7 +78,7 @@
                                     <label for="price" class="control-label">Harga</label>
                                     <input  type="number" 
                                     name="price" 
-                                    value="{{ old('price') }}"
+                                    value="{{ old('price') ? old('price') : $item->price }}"
                                     class="form-control @error('price') is-invalid @enderror">
                                     @error('price')
                                     <div class="text-muted">{{ $message }}</div>
@@ -84,14 +88,15 @@
                                     <label for="quantity" class="control-label">Quantity</label>
                                     <input  type="number" 
                                     name="quantity" 
-                                    value="{{ old('quantity') }}"
+                                    value="{{ old('quantity') ? old('quantity') : $item->quantity }}"
                                     class="form-control @error('quantity') is-invalid @enderror">
                                     @error('quantity')
                                     <div class="text-muted">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Tambah</button>
+                                    <button class="btn btn-primary" type="submit">Update</button>
+                                    <a href="{{ route('products.index') }}" class="btn btn-info">Batal</a>
                                 </div>
                             </form>
                         </div>
@@ -109,6 +114,8 @@
 <script src="/assets/backend/adminlte30/plugins/select2/js/select2.full.min.js"></script>
 <!-- Jasny Bootstrap 4 -->
 <script src="/assets/backend/adminlte30/plugins/jasny-bootstrap/4.0.0/js/jasny-bootstrap.min.js"></script>
+<!-- Summernote Bootstrap 4 -->
+<script src="/assets/backend/adminlte30/plugins/summernote/summernote-bs4.min.js"></script>   
 <script>
         $(function () {
             //Initialize Select2 Elements

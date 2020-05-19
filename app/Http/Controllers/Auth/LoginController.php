@@ -37,4 +37,18 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // public function validateLogin(Request $request)
+    // {
+    //     $this->validate($request, [
+    //         'email' => 'required|email',
+    //         'password' => 'required|string'
+    //     ]);
+    // ​
+    //     if (auth()->attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1])) 
+    //     {
+    //         return redirect()->intended('home');
+    //     }
+    //     return redirect()->back()->with(['error' => 'Password Invalid / Inactive Users']);
+    // }
 }

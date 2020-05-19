@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <tr>
       <th>Nama</th>
-      <td>{{ $item->title }}</td>
+      <td>{{ $item->name }}</td>
     </tr>
     <tr>
       <th>Email</th>

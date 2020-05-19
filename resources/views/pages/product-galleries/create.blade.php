@@ -48,7 +48,7 @@
                                     class="form-control select2bs4 @error('products_id') is-invalid @enderror">
                                     <option value="">Pilih Barang</option>
                                     @foreach ($products as $product)
-                                    <option value="{{ $product->id }}">{{ $product->title }}</option>
+                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('products_id')

@@ -47,12 +47,12 @@
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group">
-                                    <label for="title" class="control-label">Nama Barang</label>
+                                    <label for="name" class="control-label">Nama Barang</label>
                                     <input  type="text"
-                                    name="title" 
-                                    value="{{ old('title') ? old('title') : $item->title}}" //Tenari function
-                                    class="form-control @error('title') is-invalid @enderror">
-                                    @error('title')
+                                    name="name" 
+                                    value="{{ old('name') ? old('name') : $item->name}}" //Tenari function
+                                    class="form-control @error('name') is-invalid @enderror">
+                                    @error('name')
                                     <div class="text-muted">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -67,7 +67,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="title" class="control-label">Deskripsi</label>
+                                    <label for="name" class="control-label">Deskripsi</label>
                                     <textarea name="description"
                                     class=" form-control @error('description') is-invalid @enderror" >{{ old('description') ? old('description') : $item->description }}</textarea>
                                     @error('description')

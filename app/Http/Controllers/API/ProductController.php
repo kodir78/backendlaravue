@@ -46,7 +46,7 @@ class ProductController extends Controller
         $product = Product::with('galleries');
 
         if($name)
-            $product->where('title', 'like', '%' . $name .'%');
+            $product->where('name', 'like', '%' . $name .'%');
 
         if($type)
             $product->where('type', 'like', '%' . $type .'%');

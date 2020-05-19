@@ -58,7 +58,7 @@
                                     <tr>
                                         @forelse ($items as $item)
                                         <td class="serial">{{ $item->id }}</td>
-                                        <td>{{ $item->product->title }}</td>
+                                        <td>{{ $item->product->name }}</td>
                                         <td class="text-center">
                                             <img src="{{ url($item->photo) }}" alt="" height="80px"> 
                                         </td>

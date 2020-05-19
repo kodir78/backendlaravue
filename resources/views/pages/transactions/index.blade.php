@@ -60,7 +60,7 @@
                                   @forelse ($items as $item)
                                     <tr>
                                       <td>{{ $item->id }}</td>
-                                      <td>{{ $item->title }}</td>
+                                      <td>{{ $item->name }}</td>
                                       <td>{{ $item->email }}</td>
                                       <td>{{ $item->number }}</td>
                                       <td>${{ $item->transaction_total }}</td>

@@ -1,4 +1,7 @@
 @extends('layouts.default')
+@section('title')
+    Tambah Role
+@endsection
 @push('after-style')
 <!-- Select2 -->
 <link rel="stylesheet" href="/assets/backend/adminlte30/plugins/select2/css/select2.min.css">
@@ -16,14 +19,14 @@
                 <div class="col-sm-6">
                     <h1>
                         Tambah
-                        <small>Barang</small>
+                        <small>Role</small>
                     </h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Post</a></li>
-                        <li class="breadcrumb-item active">Tambah Barang</li>
+                        <li class="breadcrumb-item active">Tambah Role</li>
                     </ol>
                 </div>
             </div>
@@ -37,13 +40,13 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Item Barang</h3>
+                            <h3 class="card-title">Item Role</h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('products.store') }}" method="post" class="bg-white shadow-sm p-3">
+                            <form action="{{ route('role.store') }}" method="post" class="bg-white shadow-sm p-3">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name" class="control-label">Nama Barang</label>
+                                    <label for="name" class="control-label">Nama Role</label>
                                     <input  type="text"
                                     name="name" 
                                     value="{{ old('name') }}"
@@ -53,45 +56,8 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="type" class="control-label">Tipe Barang</label>
-                                    <input  type="text" 
-                                    name="type" 
-                                    value="{{ old('type') }}"
-                                    class="form-control @error('type') is-invalid @enderror">
-                                    @error('type')
-                                    <div class="text-muted">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="description" class="control-label">Deskripsi</label>
-                                    <textarea name="description"
-                                    class=" form-control @error('description') is-invalid @enderror" >{{ old('description') }}</textarea>
-                                    @error('description')
-                                    <div class="text-muted">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="price" class="control-label">Harga</label>
-                                    <input  type="number" 
-                                    name="price" 
-                                    value="{{ old('price') }}"
-                                    class="form-control @error('price') is-invalid @enderror">
-                                    @error('price')
-                                    <div class="text-muted">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="quantity" class="control-label">Quantity</label>
-                                    <input  type="number" 
-                                    name="quantity" 
-                                    value="{{ old('quantity') }}"
-                                    class="form-control @error('quantity') is-invalid @enderror">
-                                    @error('quantity')
-                                    <div class="text-muted">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
                                     <button class="btn btn-primary" type="submit">Tambah</button>
+                                    <a href="{{ route('role.index') }}" class="btn btn-info">Batal</a>
                                 </div>
                             </form>
                         </div>

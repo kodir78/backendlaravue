@@ -38,7 +38,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Barang
+                Manajemen Produk
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -46,13 +46,13 @@
               <li class="nav-item">
                 <a href="{{ route('products.index') }}" class="nav-link">
                   <i class="fa fa-list nav-icon"></i>
-                  <p>Lihat Barang</p>
+                  <p>Lihat Produk</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('products.create') }}" class="nav-link">
                   <i class="fa fa-plus nav-icon"></i>
-                  <p>Tambah Barang</p>
+                  <p>Tambah Produk</p>
                 </a>
               </li>
             </ul>
@@ -61,7 +61,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Foto Barang
+                Foto Produk
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -69,13 +69,13 @@
               <li class="nav-item">
                 <a href="{{ route('product-galleries.index') }}" class="nav-link">
                   <i class="fa fa-list nav-icon"></i>
-                  <p>Lihat Foto Barang</p>
+                  <p>Lihat Foto Produk</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('product-galleries.create') }}" class="nav-link">
                   <i class="fa fa-plus nav-icon"></i>
-                  <p>Tambah Foto Barang</p>
+                  <p>Tambah Foto Produk</p>
                 </a>
               </li>
             </ul>
@@ -95,6 +95,52 @@
                   <p>Lihat Transaksi</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manajemen Role
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('role.index') }}" class="nav-link">
+                  <i class="fa fa-list nav-icon"></i>
+                  <p>Lihat Role</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manajemen User
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('users.index') }}" class="nav-link">
+                  <i class="fa fa-list nav-icon"></i>
+                  <p>Lihat User</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('users.create') }}" class="nav-link">
+                  <i class="fa fa-plus nav-icon"></i>
+                  <p>Tambah User</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('users.roles_permission') }}" class="nav-link">
+                  <i class="fa fa-plus nav-icon"></i>
+                    <p>Role Permission</p>
+                </a>
+            </li>            
             </ul>
           </li>
         </ul>
